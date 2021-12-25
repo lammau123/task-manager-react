@@ -18,12 +18,12 @@ const heading = {
     marginTop: '0px'
 };
 
-function Header(){
+function Header({func}){
     return (
         <div style={header}>
             <h1 style={heading}>Tasks Manager</h1>
             <button style={btn}>Import</button>
-            <button style={btn}>Add</button>
+            <button style={btn} onClick={() => func()}>Add</button>
         </div>
     );
 }

@@ -1,19 +1,16 @@
-const taskListHeader = {
-    border: '1px solid',
-    backgroundColor: 'grey',
-    paddingLeft: '5px'
-}
+import Task from './Task';
+import './Tasks.css';
 
-function Tasks(){
+function Tasks({tasks, func}){
     return (
         <>
-            <div style={taskListHeader}><h3>Schedule List</h3></div>
-            <div class="task-list">
-                <div>Tasks</div>
-                <div>Tasks</div>
-                <div>Tasks</div>
-                <div>Tasks</div>
-                <div>Tasks</div>
+            <div>
+                <div className="task-list-header"><h3>Schedule List</h3></div>
+                <div className="task-list">
+                    { tasks.map( task => {
+                        return <Task key={task.id} task={task} func={func}></Task>;
+                    })}
+                </div>
             </div>
         </>
     );

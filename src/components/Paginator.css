@@ -1,0 +1,130 @@
+.page-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.lt {
+    margin: 15px;
+    cursor: pointer;
+}
+
+.gt {
+    margin: 15px;
+    cursor: pointer;
+}
+
+.current-page {
+    margin: 15px;
+}
+
+.page-per-item {
+    display: flex;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.page-item {
+    display: flex;
+    justify-content:space-between; 
+    width: 50px;
+    border-bottom: 2px solid;
+}
+
+.page-item-label {
+    padding-right: 5px;
+}
+
+.item-no {
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.items {
+    background-color: white;
+    position: absolute;
+    border: 1px;
+    box-shadow: 1px 1px 1px 1px hsl(0, 0%, 53%);
+    border-radius: 00.1cm;
+    margin: 0;
+    padding: 0;
+}
+
+.item-fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.item-fadeIn {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+}
+ 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+ul li:first-child {
+    border-top-left-radius: 00.1cm;
+    border-top-right-radius: 00.1cm;
+}
+
+ul li:last-child {
+    border-bottom-right-radius: 00.1cm;
+    border-bottom-left-radius: 00.1cm;
+}
+
+ul li:hover {
+    background: #555;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.arrow-disabled {
+    border: solid grey;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+  
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+  
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.drop-arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    height: 3px;
+    width: 3px;
+    padding: 0px;
+    margin-bottom: 2px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
