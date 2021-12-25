@@ -14,7 +14,9 @@ const container = {
 };
 
 function TaskManager(){
+    const [pagination, setPagination] = useState({currentPage: 1, pageSize: 10, totalPages: 40});
     const [tasks, setTasks] = useState([{id: 0, name: 'Test0', time: Date.now()}]);
+
     useEffect(() => {
         setTasks(prev => {
             return [
@@ -22,6 +24,10 @@ function TaskManager(){
                 {id: 1, name: 'Test1', time: Date.now()}, 
                 {id: 2, name: 'Test2', time: Date.now()}];
         });
+
+        return () => {
+            setTasks([]);
+        }
     }, []);
 
     const [isShowAddTask, setShowAddTask] = useState(false);
@@ -34,14 +40,18 @@ function TaskManager(){
 
     const addTask = (formData) => {
         setTasks(prev => {
-            return [
-                ...prev, 
-                {...formData}
-            ]});
+            return [...prev, {...formData}];
+        });
     }
 
     const showAddTask = () => {
         setShowAddTask(!isShowAddTask);
+    }
+
+    const pageSelected = (no) => {
+        setPagination(prev => {
+            return {...prev, currentPage: no};
+        });
     }
 
     return (
@@ -50,7 +60,9 @@ function TaskManager(){
             <div>
                 {isShowAddTask && <TaskForm func={addTask}></TaskForm>}
                 <Tasks tasks={tasks} func={removeTasks}></Tasks>
-                <Paginator></Paginator>
+                <Paginator currentPage={pagination.currentPage} 
+                            pageSize={pagination.pageSize} 
+                            totalItems={pagination.totalPages} pageSelected={pageSelected}></Paginator>
             </div>
         </div>
     );
